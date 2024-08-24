@@ -57,6 +57,7 @@ public class App {
         byte[] version = { byteArr[0] };
         // Wrap the long in a ByteBuffer to allow an easy read
         ByteBuffer longReader = ByteBuffer.wrap(byteArr, 1, 8);
+        longReader.order(ByteOrder.LITTLE_ENDIAN);
         long lastTimestamp = longReader.getLong();
         System.out.println("NFCSnoop version: " + Hex.encodeHexString(version));
         System.out.println("Last timestamp: " + lastTimestamp);
